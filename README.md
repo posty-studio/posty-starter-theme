@@ -1,2 +1,2 @@
-# starter-theme
+# Posty Starter Theme
 WordPress starter theme.
