@@ -1,11 +1,11 @@
 <?php
 
 spl_autoload_register(function ($class) {
-    if (strpos($class, 'Posty_Starter_Theme\\') !== 0) {
+    if (strpos($class, 'Posty\\') !== 0) {
         return;
     }
 
-    $file = str_replace('Posty_Starter_Theme\\', '', $class);
+    $file = str_replace('Posty\\', '', $class);
     $file = strtolower($file);
     $file = str_replace('_', '-', $file);
 
@@ -17,5 +17,9 @@ spl_autoload_register(function ($class) {
     require_once __DIR__ . '/includes/' . $path . '/class-' . $file . '.php';
 });
 
-$setup = new Posty_Starter_Theme\Setup();
+// Setup functions
+require_once __DIR__ . '/functions/render.php';
+require_once __DIR__ . '/functions/svg.php';
+
+$setup = new Posty\Setup();
 $setup->init();

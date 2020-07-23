@@ -1,43 +1,53 @@
 {
     "name": "posty-starter-theme",
+    "title": "Posty Starter Theme",
     "version": "1.0.0",
     "description": "An opinionated starter theme for WordPress.",
+    "homepage": "https://posty.studio",
     "scripts": {
-        "build": "webpack --mode='production'",
-        "dev": "webpack --mode='development' --watch"
+        "build": "gulp build --env production",
+        "dev": "gulp --env development"
     },
     "repository": {
         "type": "git",
         "url": "https://github.com/posty-studio/posty-starter-theme.git"
     },
-    "author": "Posty Studio <daniel@danielpost.com> (https://posty.studio/)",
+    "author": {
+        "name": "Posty Studio",
+        "email": "info@posty.studio",
+        "url": "https://posty.studio/"
+    },
     "license": "GPL-3.0",
     "bugs": {
         "url": "https://github.com/posty-studio/posty-starter-theme/issues"
     },
-    "browserslist": [
-        "extends @wordpress/browserslist-config"
-    ],
     "devDependencies": {
         "@wordpress/babel-preset-default": "^4.17.0",
         "@wordpress/browserslist-config": "^2.7.0",
         "@wordpress/dependency-extraction-webpack-plugin": "^2.8.0",
-        "@wordpress/postcss-plugins-preset": "^1.3.1",
         "@wordpress/scripts": "^12.1.1",
         "babel-loader": "^8.1.0",
-        "clean-webpack-plugin": "^3.0.0",
-        "css-loader": "^3.6.0",
-        "extract-loader": "^5.1.0",
+        "browser-sync": "^2.26.10",
+        "cssnano": "^4.1.10",
+        "del": "^5.1.0",
+        "fancy-log": "^1.3.3",
         "fibers": "^5.0.0",
-        "file-loader": "^6.0.0",
-        "mini-css-extract-plugin": "^0.9.0",
-        "postcss-loader": "^3.0.0",
+        "gulp": "^4.0.2",
+        "gulp-if": "^3.0.0",
+        "gulp-imagemin": "^7.1.0",
+        "gulp-notify": "^3.2.0",
+        "gulp-plumber": "^1.2.1",
+        "gulp-postcss": "^8.0.0",
+        "gulp-rev": "^9.0.0",
+        "gulp-sass": "^4.1.0",
+        "gulp-sourcemaps": "^2.6.5",
+        "imagemin": "^7.0.1",
+        "minimist": "^1.2.5",
+        "plugin-error": "^1.0.1",
         "sass": "^1.26.10",
-        "sass-loader": "^9.0.2",
         "terser-webpack-plugin": "^3.0.7",
         "thread-loader": "^2.1.3",
-        "webpack": "^4.43.0",
-        "webpack-cli": "^3.3.12"
+        "webpack": "^4.43.0"
     },
     "dependencies": {
         "gorko": "^0.2.1"
