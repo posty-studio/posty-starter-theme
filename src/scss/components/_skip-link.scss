@@ -1,17 +1,8 @@
-// Hide skip link visually by default
-.skip-link:not(:focus) {
-    @extend %visually-hidden;
-}
-
 .skip-link:focus {
-    @include apply-utility() display: inline-block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: get-size(300) get-size(500) get-size('base') get-size(500);
-    background-color: var(--color-action-bg);
-    color: var(--color-action-text);
-    line-height: 1;
+    clip: unset;
+    width: auto;
+    padding: get-size('100') get-size('200');
     text-decoration: none;
-    font-weight: 700;
+    top: get-size('200');
+    left: get-size('200');
 }

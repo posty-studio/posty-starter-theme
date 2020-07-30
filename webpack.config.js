@@ -16,6 +16,7 @@ const isProduction = options.env && options.env === 'production';
 const config = {
     entry: {
         app: './src/js/app.js',
+        editor: './src/js/editor.js',
     },
     output: {
         filename: '[name].js',

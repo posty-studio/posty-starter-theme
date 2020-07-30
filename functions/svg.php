@@ -10,12 +10,6 @@ namespace Posty;
  * @return string|void
  */
 function svg(string $name, array $args = []) : string {
-    $args = wp_parse_args($args, [
-        'name'          => $name,
-        'title'         => '',
-        'description'   => '',
-    ]);
-
     $path = POSTY_THEME_ASSETS_PATH . '/img/' . $name . '.svg';
 
     if (!file_exists($path)) {
@@ -28,8 +22,8 @@ function svg(string $name, array $args = []) : string {
 
     $unique_id = uniqid();
     $labels = [
-        'title' => $args['title'],
-        'desc' => $args['description'],
+        'title' => $args['title'] ?? '',
+        'desc' => $args['description'] ?? '',
     ];
     $labelledby = [];
 

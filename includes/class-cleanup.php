@@ -13,6 +13,7 @@ class Cleanup {
     }
 
     public static function remove_wp_embed() {
+        wp_dequeue_script('wp-embed');
         wp_deregister_script('wp-embed');
     }
 
@@ -35,8 +36,8 @@ class Cleanup {
         remove_filter('the_content_feed', 'wp_staticize_emoji');
         remove_filter('comment_text_rss', 'wp_staticize_emoji');
         add_filter('emoji_svg_url', '__return_false');
-        add_filter('tiny_mce_plugins', function(array $plugins) : array {
-            return array_diff($plugins, ['wpemoji']);
+        add_filter('tiny_mce_plugins', function($plugins) : array {
+            return is_array($plugins) ? array_diff($plugins, ['wpemoji']) : [];
         });
     }
 }

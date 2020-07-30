@@ -5,6 +5,7 @@ namespace Posty;
 class Assets {
     public static function register() {
         add_action('wp_enqueue_scripts', [__CLASS__, 'enqueue_assets']);
+        add_action('admin_enqueue_scripts', [__CLASS__, 'enqueue_admin_assets']);
         add_filter('style_loader_src', [__CLASS__, 'remove_ver_query_arg'], 10, 2);
     }
 
@@ -77,5 +78,9 @@ class Assets {
     public static function enqueue_assets() {
         self::add_style('style');
         self::add_script('app');
+    }
+
+    public static function enqueue_admin_assets() {
+        self::add_script('editor');
     }
 }

@@ -1,0 +1,62 @@
+:root {
+    --flow-space: #{get-size('600')};
+}
+
+body {
+    @include apply-utility('font', 'base');
+
+    background: get-color('light');
+    color: get-color('dark-shade');
+    line-height: 1.5;
+    font-size: get-size('400');
+}
+
+a:not([class]) {
+    color: currentColor;
+    text-decoration-color: get-color('primary');
+}
+
+:focus {
+    outline: 2px dashed get-color('primary');
+    outline-offset: 0.25rem;
+}
+
+main:focus {
+    outline: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    @include apply-utility('font', 'heading');
+    @include apply-utility('leading', 'flat');
+
+    font-weight: 700;
+}
+
+svg {
+    width: 100%;
+    max-height: 100%;
+}
+
+::selection {
+    color: get-color('light');
+    background: rgba(get-color('dark-shade'), 0.99);
+}
+
+// Scrollbar styles
+::-webkit-scrollbar {
+    height: 1rem;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+    border: 1px solid get-color('dark-glare');
+    border-radius: 0.25rem;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: get-color('dark');
+    border-radius: 0.25rem;
+}

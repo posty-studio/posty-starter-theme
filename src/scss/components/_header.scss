@@ -1,0 +1,15 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: get-size('300');
+    margin: get-size('300') 0;
+}
+
+.header__logo {
+    font-size: 0;
+
+    svg {
+        max-width: 100px;
+    }
+}

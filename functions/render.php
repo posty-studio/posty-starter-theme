@@ -7,7 +7,12 @@ namespace Posty;
  *
  * @param string $name
  * @param array $args
+ * @return string
  */
 function render(string $name, array $args = []) {
-    echo get_template_part('partials/' . $name, null, $args);
+    ob_start();
+
+    get_template_part('partials/' . $name, null, $args);
+
+    return ob_get_clean();
 }

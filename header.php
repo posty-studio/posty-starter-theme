@@ -12,7 +12,6 @@
     <?php wp_body_open(); ?>
 
     <?php echo \Posty\render('components/skip-link'); ?>
-    <?php echo \Posty\svg('example', [
-        'title' => 'Ok',
-        'description' => 'Nifty!'
-    ]); ?>
+    <?php echo \Posty\render('components/header'); ?>
+
+    <div class="wrapper">
