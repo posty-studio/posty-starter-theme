@@ -42,6 +42,7 @@
         "gulp-sass": "^4.1.0",
         "gulp-sourcemaps": "^2.6.5",
         "imagemin": "^7.0.1",
+        "kroket": "0.0.12",
         "minimist": "^1.2.5",
         "plugin-error": "^1.0.1",
         "sass": "^1.26.10",

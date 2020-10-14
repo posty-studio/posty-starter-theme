@@ -12,6 +12,7 @@ sass.compiler = require('sass');
 const Fiber = require('fibers');
 const notify = require('gulp-notify');
 const plumber = require('gulp-plumber');
+const kroket = require('kroket');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
@@ -57,6 +58,12 @@ function reload(done) {
 // Clean
 function clean(done) {
     del(`${config.dist.base}/**/*`);
+    done();
+}
+
+// Run Kroket
+function runKroket(done) {
+    kroket();
     done();
 }
 
@@ -184,8 +191,9 @@ function watch() {
 
     gulp.watch(config.src.img, minifyImages);
     gulp.watch(config.src.sass, css);
+    gulp.watch('./kroket.config.js', runKroket);
 }
 
 // Tasks
-gulp.task('default', gulp.series(clean, createStyleCSS, minifyImages, gulp.parallel(css, js), watch));
-gulp.task('build', gulp.series(clean, createStyleCSS, gulp.parallel(css, js), minifyImages));
+gulp.task('default', gulp.series(clean, createStyleCSS, minifyImages, runKroket, gulp.parallel(css, js), watch));
+gulp.task('build', gulp.series(clean, createStyleCSS, runKroket, gulp.parallel(css, js), minifyImages));
