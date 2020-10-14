@@ -1,0 +1,5 @@
+{
+    "require-dev": {
+        "humanmade/coding-standards": "^1.1"
+    }
+}

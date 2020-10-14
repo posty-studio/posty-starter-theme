@@ -4,6 +4,7 @@ const fs = require('fs');
 const del = require('del');
 const gulp = require('gulp');
 const rev = require('gulp-rev');
+const jsonTransform = require('gulp-json-transform');
 const sourcemaps = require('gulp-sourcemaps');
 const minimist = require('minimist');
 const gulpif = require('gulp-if');
@@ -94,8 +95,9 @@ function css() {
         .pipe(gulpif(isProduction, postcss([autoprefixer(), cssnano()])))
         .pipe(gulpif(isProduction, rev()))
         .pipe(gulpif(isProduction, gulp.dest(config.dist.css)))
-        .pipe(gulpif(isProduction, rev.manifest('manifest.json')))
-        .pipe(gulp.dest(config.dist.css))
+        .pipe(gulpif(isProduction, rev.manifest('manifest.php')))
+        .pipe(jsonTransform((data, file) => `<?php return ${json2php(JSON.parse(JSON.stringify(data)))};`))
+        .pipe(gulp.dest(config.dist.base))
         .pipe(gulpif(!isProduction, browserSync.stream()))
         .pipe(notify({ title: 'SCSS', message: 'Sass compiled successfully!' }));
 }

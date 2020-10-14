@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<ruleset>
+	<!-- Files or directories to check -->
+	<file>./</file>
+	<exclude-pattern>*\.(?!php$)</exclude-pattern>
+	<exclude-pattern>*/assets/*</exclude-pattern>
+	<exclude-pattern>*/languages/*</exclude-pattern>
+	<exclude-pattern>*/src/*</exclude-pattern>
+	<exclude-pattern>*/vendor/*</exclude-pattern>
+	<exclude-pattern>*/node_modules/*</exclude-pattern>
+
+	<arg name="extensions" value="php" />
+	<arg name="colors"/>
+	<arg value="s"/>
+
+	<rule ref="WordPress">
+		<exclude name="Squiz.Commenting" />
+
+		<!-- We like short arrays and ternaries around here -->
+		<exclude name="Generic.Arrays.DisallowShortArraySyntax" />
+		<exclude name="WordPress.PHP.DisallowShortTernary" />
+
+		<!-- No Yoda conditions! -->
+		<exclude name="WordPress.PHP.YodaConditions" />
+	</rule>
+
+		<!-- Disallow functions where WordPress has an alternative. -->
+	<rule ref="WordPress.WP.AlternativeFunctions">
+		<!-- ...but, allow some back in. -->
+		<properties>
+			<property name="exclude" type="array">
+				<element value="file_get_contents" />
+				<element value="file_system_read" />
+				<element value="json_encode" />
+				<element value="json_decode" />
+
+				<!-- wp_parse_url() only exists for inconsistency in PHP <5.4 -->
+				<element value="parse_url" />
+			</property>
+		</properties>
+	</rule>
+
+	<!-- Disallow long array syntax. -->
+	<rule ref="Generic.Arrays.DisallowLongArraySyntax" />
+
+	<!-- Single statement on same line. -->
+	<rule ref="Generic.Formatting.DisallowMultipleStatements" />
+
+	<!-- Namespacing required for classes. -->
+	<rule ref="PSR1.Classes.ClassDeclaration" />
+
+	<!-- Declare symbols or run code, but not both. -->
+	<rule ref="PSR1.Files.SideEffects" />
+
+	<!-- Namespacing required for functions. -->
+	<rule ref="PSR2.Namespaces.NamespaceDeclaration" />
+
+	<!-- Namespacing of `use` statements. -->
+	<rule ref="PSR2.Namespaces.UseDeclaration">
+		<exclude name="PSR2.Namespaces.UseDeclaration.MultipleDeclarations" />
+	</rule>
+	<rule ref="PSR2R.Namespaces.UnusedUseStatement" />
+	<rule ref="PSR2R.Namespaces.UseInAlphabeticalOrder" />
+
+	<!-- Ban inline assignment in control structures (see note on Yoda Conditions above). -->
+	<rule ref="PSR2R.ControlStructures.NoInlineAssignment" />
+
+	<!-- Allow multiple variable assignments, but only outside of conditionals -->
+	<rule ref="Squiz.PHP.DisallowMultipleAssignments">
+		<exclude name="Squiz.PHP.DisallowMultipleAssignments.Found" />
+	</rule>
+</ruleset>

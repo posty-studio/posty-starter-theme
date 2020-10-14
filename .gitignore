@@ -1,3 +1,9 @@
 *.DS_Store
 node_modules
 assets
+vendor
+
+# Kroket files
+_kroket.scss
+tokens.json
+src/scss/_config.scss
