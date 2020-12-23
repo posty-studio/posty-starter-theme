@@ -2,6 +2,7 @@
 node_modules
 assets
 vendor
+style.css
 
 # Kroket files
 _kroket.scss
