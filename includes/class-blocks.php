@@ -3,16 +3,14 @@
 namespace Posty;
 
 class Blocks {
-	public static function register() {
+	public static function register(): void {
 		self::register_block( 'testimonial' );
 	}
 
 	/**
 	 * Register a server-side block.
-	 *
-	 * @param string $name
 	 */
-	public static function register_block( $name ) {
+	public static function register_block( string $name ): void {
 		if ( empty( $name ) || ! is_string( $name ) ) {
 			return;
 		}

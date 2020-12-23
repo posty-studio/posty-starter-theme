@@ -1,7 +1,7 @@
 <?php
 
 spl_autoload_register(
-	function ( $class ) {
+	function ( $class ): void {
 		if ( strpos( $class, 'Posty\\' ) !== 0 ) {
 			return;
 		}

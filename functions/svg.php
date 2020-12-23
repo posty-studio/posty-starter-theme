@@ -5,11 +5,10 @@ namespace Posty;
 /**
  * Return the content of an SVG file.
  *
- * @param string $name
  * @param array  $args
  * @return string|void
  */
-function svg( string $name, array $args = [] ) : string {
+function svg( string $name, array $args = [] ): string {
 	$path = POSTY_THEME_ASSETS_PATH . '/img/' . $name . '.svg';
 
 	if ( ! file_exists( $path ) ) {

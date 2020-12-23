@@ -5,12 +5,9 @@ namespace Posty;
 /**
  * Render a partial.
  *
- * @param string $name
  * @param array  $args
- * @param bool   $echo
- * @return string
  */
-function render( string $name, array $args = [], $echo = true ) {
+function render( string $name, array $args = [], bool $echo = true ): string {
 	ob_start();
 
 	get_template_part( 'partials/' . $name, null, $args );

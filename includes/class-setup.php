@@ -3,7 +3,7 @@
 namespace Posty;
 
 class Setup {
-	private function set_constants() {
+	private function set_constants(): void {
 		define( 'POSTY_THEME_VERSION', '1.0.0' );
 		define( 'POSTY_THEME_SLUG', 'posty-starter-theme' );
 		define( 'POSTY_THEME_BLOCK_NAMESPACE', 'posty' );
@@ -15,7 +15,7 @@ class Setup {
 		define( 'POSTY_THEME_LANGUAGES_PATH', POSTY_THEME_PATH . '/languages' );
 	}
 
-	public function init() {
+	public function init(): void {
 		$this->set_constants();
 
 		Assets::register();
@@ -26,7 +26,7 @@ class Setup {
 		add_action( 'after_setup_theme', [ $this, 'add_theme_supports' ] );
 	}
 
-	public function add_theme_supports() {
+	public function add_theme_supports(): void {
 		add_theme_support( 'automatic-feed-links' );
 		add_theme_support( 'title-tag' );
 		add_theme_support( 'html5', [ 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ] );
