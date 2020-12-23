@@ -11,7 +11,7 @@
 <body <?php body_class(); ?>>
 	<?php wp_body_open(); ?>
 
-	<?php \Posty\render( 'components/skip-link' ); ?>
-	<?php \Posty\render( 'components/header' ); ?>
+	<?php Posty\render( 'components/skip-link' ); ?>
+	<?php Posty\render( 'components/header' ); ?>
 
 	<div class="wrapper">

@@ -19,9 +19,7 @@ spl_autoload_register(
 	}
 );
 
-// Set up all functions.
-require_once __DIR__ . '/functions/render.php';
-require_once __DIR__ . '/functions/svg.php';
+require_once __DIR__ . '/includes/template-tags.php';
 
 $setup = new Posty\Setup();
 $setup->init();

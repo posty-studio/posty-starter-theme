@@ -73,6 +73,22 @@
 		<exclude name="SlevomatCodingStandard.TypeHints.DeclareStrictTypes" />
 	</rule>
 
+	<rule ref="WordPress.Security.EscapeOutput">
+		<properties>
+			<property name="customAutoEscapedFunctions" type="array">
+				<!-- i18n functions are considered safe for core translations. -->
+				<element value="__"/>
+				<element value="_x"/>
+				<element value="_n"/>
+				<element value="_nx"/>
+				<element value="number_format_i18n"/>
+				<element value="date_i18n"/>
+				<!-- Custom functions are safe -->
+				<element value="Posty"/>
+			</property>
+		</properties>
+	</rule>
+
 	<!-- Disallow long array syntax. -->
 	<rule ref="Generic.Arrays.DisallowLongArraySyntax" />
 
